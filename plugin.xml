@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-vv-video-player" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+	<name>vvVideoPlayer</name>
+	<js-module name="VVVideoPlayer" src="www/VVVideoPlayer.js">
+		<clobbers target="cordova.plugins.VVVideoPlayer" />
+	</js-module>
+	<platform name="ios">
+		<config-file parent="/*" target="config.xml">
+			<feature name="VVVideoPlayer">
+				<param name="ios-package" value="VVVideoPlayer" />
+			</feature>
+		</config-file>
+		<source-file src="src/ios/VVPlayerViewController.m" />
+		<header-file src="src/ios/VVPlayerViewController.h" />
+
+		<source-file src="src/ios/VVVideoPlayer.m" />
+	</platform>
+
+	<platform name="android">
+	  <source-file src="src/android/VideoPlayer.java" target-dir="src/com/zenterioservices/VVVideoPlayer/" />
+
+	  <config-file target="res/xml/config.xml" parent="/*">
+	      <feature name="VVVideoPlayer">
+	          <param name="android-package" value="com.zenterioservices.VVVideoPlayer" />
+	      </feature>
+	  </config-file>
+	</platform>
+</plugin>
